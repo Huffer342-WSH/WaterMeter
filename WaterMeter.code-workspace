@@ -1,0 +1,159 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"options": {
+					"cwd": "${workspaceFolder}/Debug/"
+				},
+				"label": "构建-debug",
+				"type": "shell",
+				"command": "make",
+				"args": [
+					"all"
+				],
+				"group": "build",
+				"presentation": {
+					"echo": false,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true
+				},
+				"problemMatcher": "$gcc"
+			},
+			{
+				"options": {
+					"cwd": "${workspaceFolder}"
+				},
+				"label": "烧录",
+				"command": "openocd",
+				"args": [
+					"-f",
+					"interface/cmsis-dap.cfg",
+					"-f",
+					"target/stm32f1x.cfg",
+					"-c",
+					"program ./Debug/LVGL_demo.elf  verify reset",
+					"-c",
+					"shutdown"
+				],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true
+				},
+				"problemMatcher": [],
+				"group": "build"
+			},
+			{
+				"options": {
+					"cwd": "${workspaceFolder}"
+				},
+				"dependsOrder": "sequence",
+				"dependsOn": [
+					"构建-debug",
+					"烧录"
+				],
+				"label": "构建-Debug & 烧录",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true
+				},
+				"problemMatcher": [],
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				}
+			},
+			{
+				"label": "Start OpenOCD",
+				"command": "openocd",
+				"args": [
+					"-f",
+					"interface/cmsis-dap.cfg",
+					"-f",
+					"target/stm32f1x.cfg",
+					"-c",
+					"init",
+					"-c",
+					"halt"
+				],
+				"presentation": {
+					"echo": false,
+					"reveal": "never",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true
+				},
+				"problemMatcher": []
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"cwd": "${workspaceRoot}",
+				"executable": "${workspaceRoot}/Debug/LVGL_demo.elf",
+				"name": "Cortex-Debug",
+				"request": "launch",
+				"type": "cortex-debug",
+				"servertype": "openocd",
+				"configFiles": [
+					"interface/cmsis-dap.cfg",
+					"target/stm32f1x.cfg",
+				],
+				"svdFile": "F:/Library/cmsis-svd/cmsis-svd-master/data/STMicro/STM32F103xx.svd",
+				"searchDir": [
+					"C:/Compiler/OpenOCD/share/openocd/scripts/"
+				],
+				"runToEntryPoint": "main",
+				"showDevDebugOutput": "none"
+			},
+			{
+				"name": "Cpp-Debug",
+				"type": "cppdbg",
+				"request": "launch",
+				"miDebuggerPath": "arm-none-eabi-gdb.exe",
+				"targetArchitecture": "arm",
+				"program": "F:/Project/STM32_Project/Greenhouse/Debug/LVGL_demo.elf",
+				"setupCommands": [
+					{
+						"text": "file 'F:/Project/STM32_Project/Greenhouse/Debug/LVGL_demo.elf'"
+					},
+					{
+						"text": "target remote localhost:3333"
+					},
+					{
+						"text": "monitor reset"
+					},
+					{
+						"text": "monitor halt"
+					},
+					{
+						"text": "load"
+					}
+				],
+				"preLaunchTask": "Build",
+				//"launchCompleteCommand": "None",
+				//"externalConsole": true,
+				"cwd": "${workspaceRoot}"
+			},
+		]
+	},
+}
