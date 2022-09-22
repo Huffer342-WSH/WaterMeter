@@ -10,5 +10,4 @@
 
 #include "main.h"
 
-
 #endif /* TASK_SCREEN_H_ */

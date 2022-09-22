@@ -18,21 +18,16 @@
 
 extern osThreadId_t Task_ScreenHandle;
 
-void TaskFunc_Screen(void *argument)
-{
-	lv_init();
-	lv_port_disp_init();
-	lv_port_indev_init();
-	ui_init();
-
-	for (;;)
-	{
-		for (uint8_t i = 0; i < 4; i++)
-		{
-			refreshUserBlock(&uiList_UserBlock[i]);
-		}
-		lv_timer_handler();
-		osDelay(20);
-	}
-
+void TaskFunc_Screen(void *argument) {
+    lv_init();
+    lv_port_disp_init();
+    lv_port_indev_init();
+    ui_init();
+    for (;;) {
+        for (uint8_t i = 0; i < 4; i++) {
+            refreshUserBlock(&uiList_UserBlock[i]);
+        }
+        lv_timer_handler();
+        osDelay(10);
+    }
 }

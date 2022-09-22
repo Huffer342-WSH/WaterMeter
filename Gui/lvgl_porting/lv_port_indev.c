@@ -11,7 +11,7 @@
  *********************/
 #include "lv_port_indev.h"
 #include "../lvgl/lvgl.h"
-#include "../Driver_MSP3520/lcd_inc.h"
+#include <Driver_MSP4021/lcd_inc.h>
 /*********************
  *      DEFINES
  *********************/

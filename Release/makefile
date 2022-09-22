@@ -72,12 +72,8 @@ RM := rm -rf
 -include Gui/lvgl/src/draw/arm2d/subdir.mk
 -include Gui/lvgl/src/draw/subdir.mk
 -include Gui/lvgl/src/core/subdir.mk
--include Gui/lvgl/demos/widgets/assets/subdir.mk
--include Gui/lvgl/demos/widgets/subdir.mk
--include Gui/lvgl/demos/benchmark/assets/subdir.mk
--include Gui/lvgl/demos/benchmark/subdir.mk
--include Gui/Driver_MSP3520/Drive_xpt2046/subdir.mk
--include Gui/Driver_MSP3520/Drive_ili9488/subdir.mk
+-include Gui/Driver_MSP4021/Drive_xpt2046/subdir.mk
+-include Gui/Driver_MSP4021/Drive_st7796/subdir.mk
 -include FATFS/Target/subdir.mk
 -include FATFS/App/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk

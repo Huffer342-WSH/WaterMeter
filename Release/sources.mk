@@ -26,12 +26,8 @@ Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
 FATFS/App \
 FATFS/Target \
-Gui/Driver_MSP3520/Drive_ili9488 \
-Gui/Driver_MSP3520/Drive_xpt2046 \
-Gui/lvgl/demos/benchmark/assets \
-Gui/lvgl/demos/benchmark \
-Gui/lvgl/demos/widgets/assets \
-Gui/lvgl/demos/widgets \
+Gui/Driver_MSP4021/Drive_st7796 \
+Gui/Driver_MSP4021/Drive_xpt2046 \
 Gui/lvgl/src/core \
 Gui/lvgl/src/draw/arm2d \
 Gui/lvgl/src/draw \

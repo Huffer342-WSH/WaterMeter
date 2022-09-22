@@ -61,6 +61,8 @@ void Error_Handler(void);
 #define XPT2046_PENIRQ_GPIO_Port GPIOE
 #define XPT2046_MISO_Pin GPIO_PIN_4
 #define XPT2046_MISO_GPIO_Port GPIOA
+#define LCD_LED_Pin GPIO_PIN_5
+#define LCD_LED_GPIO_Port GPIOA
 #define LCD_DC_Pin GPIO_PIN_1
 #define LCD_DC_GPIO_Port GPIOB
 #define LCD_CS_Pin GPIO_PIN_12

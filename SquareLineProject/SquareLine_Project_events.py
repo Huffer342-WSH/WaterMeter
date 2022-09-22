@@ -42,3 +42,7 @@ def SetNewBlockList(event_struct):
 def ClearHistory(event_struct):
     return
 
+
+def SetBrightness(event_struct):
+    return
+
